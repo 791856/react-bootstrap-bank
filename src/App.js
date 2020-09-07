@@ -7,10 +7,14 @@ import { Deposit } from './Deposit';
 import {Loan} from './Loan';
 import { NoMatch } from './NoMatch';
 import { Layout } from './components/Layout'
+import {personal} from './components/PersonalLoan';
 import { NavigationBar } from './components/NavigationBar'
+import {Sucess} from  './components/Sucess'
 
 
 import './App.css';
+import { Education } from './EducationLoan';
+
 
 function App() {
   return (
@@ -25,7 +29,11 @@ function App() {
             <Route path="/apply" component={Apply} />
             <Route path="/deposit" component={Deposit} />
             <Route path="/register" component={Register} />
-            <Route path="/lone" component= {Loan} />  
+            <Route path="/loan" component= {Loan} />  
+            <Route path="/educational" component= {Education} />  
+            <Route path="/personal" component= {personal} />  
+            <Route path="/sucess" component= {Sucess} />  
+
 
             <Route component={NoMatch} />
           </Switch>
