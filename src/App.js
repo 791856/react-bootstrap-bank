@@ -9,6 +9,7 @@ import { NoMatch } from './NoMatch';
 import { Layout } from './components/Layout'
 import { NavigationBar } from './components/NavigationBar'
 
+
 import './App.css';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/deposit" component={Deposit} />
             <Route path="/register" component={Register} />
             <Route path="/lone" component= {Loan} />  
+
             <Route component={NoMatch} />
           </Switch>
         </Router>

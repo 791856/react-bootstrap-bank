@@ -16,9 +16,8 @@ export const Apply = () => {
                                 <Form.Label><strong>Loan Type</strong></Form.Label>
                                 <Form.Control as="select" custom>
                                     <option>Select</option>
-                                    <option>Home</option>
-                                    <option>Vehicle</option>
-                                    <option>Personal</option>
+                                    <option>Personal loan</option>
+                                    <option>Educational loan</option>
                                 </Form.Control>
                             </Form.Group>
 

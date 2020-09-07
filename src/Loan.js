@@ -4,7 +4,7 @@ import { Card, Button, Row, Col, Form } from 'react-bootstrap'
 export const Loan = () => { 
     return (
     <div>
-        <h1>Loan</h1> 
+        <h1>Loan1</h1> 
         <Form>
                             <Form.Group controlId="formloantype">
                                 <Form.Label><strong>Account type</strong></Form.Label>
