@@ -65,12 +65,14 @@ export const Register = () => {
                 name="namee"
                 value={values.namee}
                 onChange={handleChange}
-                isInvalid={!!errors.namee}
+                
               />
-
-              <Form.Control.Feedback type="invalid">
+ {errors.namee && touched.namee ? (
+                                <div>{errors.namee}</div>
+                            ) : null}
+              {/* <Form.Control.Feedback type="invalid">
                 {errors.namee}
-              </Form.Control.Feedback>
+              </Form.Control.Feedback> */}
             </Form.Group>
 
             <Form.Group controlId="validationFormik02">
@@ -81,12 +83,15 @@ export const Register = () => {
                 name="username"
                 value={values.username}
                 onChange={handleChange}
-                isInvalid={!!errors.username}
+               
               />
+               {errors.username && touched.username ? (
+                                <div>{errors.username}</div>
+                            ) : null}
 
-              <Form.Control.Feedback type="invalid">
+              {/* <Form.Control.Feedback type="invalid">
                 {errors.username}
-              </Form.Control.Feedback>
+              </Form.Control.Feedback> */}
             </Form.Group>
 
             <Form.Group controlId="validationFormik03">
@@ -97,11 +102,11 @@ export const Register = () => {
                 name="password"
                 value={values.password}
                 onChange={handleChange}
-                isInvalid={!!errors.password}
+               
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.password}
-              </Form.Control.Feedback>
+              {errors.password && touched.password ? (
+                                <div>{errors.password}</div>
+                            ) : null}
             </Form.Group>
 
             <Form.Group controlId="validationFormik04">
@@ -112,11 +117,11 @@ export const Register = () => {
                 name="address"
                 value={values.address}
                 onChange={handleChange}
-                isInvalid={!!errors.address}
+               
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.address}
-              </Form.Control.Feedback>
+              {errors.address && touched.address ? (
+                                <div>{errors.address}</div>
+                            ) : null}
             </Form.Group>
 
             <Form.Group controlId="validationFormik05">
@@ -127,11 +132,14 @@ export const Register = () => {
                 name="country"
                 value={values.country}
                 onChange={handleChange}
-                isInvalid={!!errors.country}
+              
               />
-              <Form.Control.Feedback type="invalid">
+              {/* <Form.Control.Feedback type="invalid">
                 {errors.country}
-              </Form.Control.Feedback>
+              </Form.Control.Feedback> */}
+                  {errors.country && touched.country ? (
+                                <div>{errors.country}</div>
+                            ) : null}
             </Form.Group>
 
             <Form.Group controlId="validationFormik05">
@@ -142,11 +150,15 @@ export const Register = () => {
                 name="state"
                 value={values.state}
                 onChange={handleChange}
-                isInvalid={!!errors.state}
+               
               />
-              <Form.Control.Feedback type="invalid">
+              {/* <Form.Control.Feedback type="invalid">
                 {errors.state}
-              </Form.Control.Feedback>
+              </Form.Control.Feedback> */}
+                  {errors.state && touched.state ? (
+                                <div>{errors.state}</div>
+                            ) : null}
+              
             </Form.Group>
 
             <Form.Group controlId="validationFormik06">
@@ -157,11 +169,11 @@ export const Register = () => {
                 name="email"
                 value={values.email}
                 onChange={handleChange}
-                isInvalid={!!errors.email}
+              
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.email}
-              </Form.Control.Feedback>
+              {errors.email && touched.email ? (
+                                <div>{errors.email}</div>
+                            ) : null}
             </Form.Group>
 
             <Form.Group controlId="validationFormik06">
@@ -172,11 +184,11 @@ export const Register = () => {
                 name="contact"
                 value={values.contact}
                 onChange={handleChange}
-                isInvalid={!!errors.contact}
+               
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.contact}
-              </Form.Control.Feedback>
+                {errors.contact && touched.contact ? (
+                                <div>{errors.contact}</div>
+                            ) : null}
             </Form.Group>
 
             <Form.Group controlId="validationFormik07">
@@ -187,11 +199,11 @@ export const Register = () => {
                 name="dob"
                 value={values.dob}
                 onChange={handleChange}
-                isInvalid={!!errors.dob}
+              
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.dob}
-              </Form.Control.Feedback>
+                     {errors.dob && touched.dob ? (
+                                <div>{errors.dob}</div>
+                            ) : null}
             </Form.Group>
 
             
@@ -215,11 +227,11 @@ export const Register = () => {
                 name="ida"
                 value={values.ida}
                 onChange={handleChange}
-                isInvalid={!!errors.ida}
+               
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.ida}
-              </Form.Control.Feedback>
+                {errors.ida && touched.ida ? (
+                                <div>{errors.ida}</div>
+                            ) : null}
             </Form.Group>
                          
         
