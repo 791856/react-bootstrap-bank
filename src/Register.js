@@ -11,7 +11,7 @@ const schema = yup.object({
     namee:yup.string()
     .required("Name is a required field").matches(/^[a-zA-Z' ']+$/)
     .min(3,"Name must be at least 3 characters"),
-    username: yup.string().required(),
+    username : yup.string().required(),
     password: yup.string().required(),
     address: yup.string().required(),
     country: yup.string().required(),
