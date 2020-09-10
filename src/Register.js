@@ -9,22 +9,27 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 
 const schema = yup.object({
     namee:yup.string()
-    .required("Name is a required field").matches(/^[a-zA-Z' ']+$/)
+    .required("Name is a required field").matches(/^[a-zA-Z' ']+$/,'Name should contain only characters and spaces')
     .min(3,"Name must be at least 3 characters"),
-    username : yup.string().required(),
-    password: yup.string().required(),
-    address: yup.string().required(),
-    country: yup.string().required(),
-  state: yup.string().required(),
-  ida:yup.number().required(),
-  email: yup.string().email().required(),
-  contact: yup.string().required()
+    username : yup.string().required("UserName is a required field"),
+    password: yup.string().required("Password is a required field"),
+    address: yup.string().required("Address is a required field"),
+    country: yup.string().required("Country is a required field"),
+  state: yup.string().required("State is a required field"),
+  ida:yup.number()
+  .positive("Must include positive numbers").required("Initial Deposit Amount is a required field"),
+  email: yup.string().email().required("Email is a required field"),
+  contact: yup.string().required("Contact is a required field")
   .matches(phoneRegExp, 'Phone number is not valid')
-  .min(10, "to short")
-  .max(10, "to long"),
-  dob: yup.date().max(new Date(Date.now() - 1 * 24 * 60 * 60 * 1000)).required(),
-  ac_type: yup.string().required(),
-  zip: yup.string().required(),
+  .min(10, "too short")
+  .max(10, "too long"),
+  dob: yup.date().max(new Date(Date.now() - 1 * 24 * 60 * 60 * 1000),"DOB cannot exceed yesterday's date")
+  .required("DOB is a required field"),
+  ac_type: yup.string().required("Account type must be selected"),
+  zip: yup.string().required("Zip is a required field"),
+  branch: yup.string().required("Branch name is a required field"),
+  ipt: yup.string().required("Identification Proof Type is a required field"),
+  idn: yup.string().required("Identification Document No. is a required field"),
   terms: yup.bool().required(),
 });
 
@@ -65,14 +70,13 @@ export const Register = () => {
                 name="namee"
                 value={values.namee}
                 onChange={handleChange}
+             //    isInvalid={!!errors.namee && touched.namee}
                 
               />
- {errors.namee && touched.namee ? (
+ {errors.namee  && touched.namee? (
                                 <div>{errors.namee}</div>
                             ) : null}
-              {/* <Form.Control.Feedback type="invalid">
-                {errors.namee}
-              </Form.Control.Feedback> */}
+            
             </Form.Group>
 
             <Form.Group controlId="validationFormik02">
@@ -83,15 +87,13 @@ export const Register = () => {
                 name="username"
                 value={values.username}
                 onChange={handleChange}
-               
+               //  isInvalid={!!errors.username  && touched.username}
               />
-               {errors.username && touched.username ? (
+               {errors.username  && touched.username ? (
                                 <div>{errors.username}</div>
                             ) : null}
 
-              {/* <Form.Control.Feedback type="invalid">
-                {errors.username}
-              </Form.Control.Feedback> */}
+            
             </Form.Group>
 
             <Form.Group controlId="validationFormik03">
@@ -102,9 +104,10 @@ export const Register = () => {
                 name="password"
                 value={values.password}
                 onChange={handleChange}
+              //   isInvalid={!!errors.password}
                
               />
-              {errors.password && touched.password ? (
+              {errors.password  && touched.password? (
                                 <div>{errors.password}</div>
                             ) : null}
             </Form.Group>
@@ -117,9 +120,11 @@ export const Register = () => {
                 name="address"
                 value={values.address}
                 onChange={handleChange}
+                                // isInvalid={!!errors.address}
+
                
               />
-              {errors.address && touched.address ? (
+              {errors.address  && touched.address ? (
                                 <div>{errors.address}</div>
                             ) : null}
             </Form.Group>
@@ -132,12 +137,11 @@ export const Register = () => {
                 name="country"
                 value={values.country}
                 onChange={handleChange}
-              
+                                              // isInvalid={!!errors.country}
+
               />
-              {/* <Form.Control.Feedback type="invalid">
-                {errors.country}
-              </Form.Control.Feedback> */}
-                  {errors.country && touched.country ? (
+            
+                  {errors.country  && touched.country ? (
                                 <div>{errors.country}</div>
                             ) : null}
             </Form.Group>
@@ -150,12 +154,13 @@ export const Register = () => {
                 name="state"
                 value={values.state}
                 onChange={handleChange}
-               
+                                                             // isInvalid={!!errors.state}
+
               />
               {/* <Form.Control.Feedback type="invalid">
                 {errors.state}
               </Form.Control.Feedback> */}
-                  {errors.state && touched.state ? (
+                  {errors.state  && touched.state  ? (
                                 <div>{errors.state}</div>
                             ) : null}
               
@@ -169,9 +174,10 @@ export const Register = () => {
                 name="email"
                 value={values.email}
                 onChange={handleChange}
-              
+                                                // isInvalid={!!errors.email}
+
               />
-              {errors.email && touched.email ? (
+              {errors.email  && touched.email ? (
                                 <div>{errors.email}</div>
                             ) : null}
             </Form.Group>
@@ -184,9 +190,10 @@ export const Register = () => {
                 name="contact"
                 value={values.contact}
                 onChange={handleChange}
-               
+                                                // isInvalid={!!errors.contact}
+              
               />
-                {errors.contact && touched.contact ? (
+                {errors.contact   && touched.contact? (
                                 <div>{errors.contact}</div>
                             ) : null}
             </Form.Group>
@@ -199,9 +206,10 @@ export const Register = () => {
                 name="dob"
                 value={values.dob}
                 onChange={handleChange}
-              
+                                                              // isInvalid={!!errors.dob}
+
               />
-                     {errors.dob && touched.dob ? (
+                     {errors.dob  && touched.dob  ? (
                                 <div>{errors.dob}</div>
                             ) : null}
             </Form.Group>
@@ -212,11 +220,27 @@ export const Register = () => {
 
             <Form.Group controlId="object9">
             <Form.Label><strong>Account type</strong></Form.Label>
-                            <Form.Control as="select" custom>
-                                <option>Select</option>
-                                <option>salary</option>
-                                <option>savings</option>
+                            <Form.Control as="select" name="ac_type"  value={values.ac_type}
+                onChange={handleChange}>
+                                
+                                <option >salary</option>
+                                <option selected>savings</option>
                             </Form.Control>
+            </Form.Group>
+
+            <Form.Group controlId="validationFormik091">
+            <Form.Label><strong>Branch name</strong></Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Branch name"
+                name="branch"
+                value={values.branch}
+                onChange={handleChange}
+               // isInvalid={!!errors.ida}
+             />
+                {errors.branch  && touched.branch ? (
+                                <div>{errors.branch}</div>
+                            ) : null}
             </Form.Group>
 
             <Form.Group controlId="validationFormik09">
@@ -227,10 +251,41 @@ export const Register = () => {
                 name="ida"
                 value={values.ida}
                 onChange={handleChange}
-               
-              />
-                {errors.ida && touched.ida ? (
+               // isInvalid={!!errors.ida}
+             />
+                {errors.ida  && touched.ida ? (
                                 <div>{errors.ida}</div>
+                            ) : null}
+            </Form.Group>
+
+            <Form.Group controlId="validationFormik092">
+            <Form.Label><strong>Identification Proof Type</strong></Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Identification Proof Type"
+                name="ipt"
+                value={values.ipt}
+                onChange={handleChange}
+               // isInvalid={!!errors.ida}
+             />
+                {errors.ipt  && touched.ipt ? (
+                                <div>{errors.ipt}</div>
+                            ) : null}
+            </Form.Group>
+
+            
+            <Form.Group controlId="validationFormik093">
+            <Form.Label><strong>Identification Document No.</strong></Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Identification Document No."
+                name="idn"
+                value={values.idn}
+                onChange={handleChange}
+               // isInvalid={!!errors.ida}
+             />
+                {errors.idn  && touched.idn ? (
+                                <div>{errors.idn}</div>
                             ) : null}
             </Form.Group>
                          
