@@ -12,6 +12,7 @@ import { NavigationBar } from './components/NavigationBar';
 import {Sucess} from  './components/Sucess';
 import {UserDetail} from  './components/UserDetails';
 import {ValidationSchemaExample} from './components/Velidation'
+import {RegisterSucess} from  './components/RegisterSucess'
 
 
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/sucess" component= {Sucess} />  
             <Route path="/userdetails" component= {UserDetail} />  
             <Route path="/velidation" component= {ValidationSchemaExample} />
+            <Route path="/registerSucess" component= {RegisterSucess} />
 
 
             <Route component={NoMatch} />
