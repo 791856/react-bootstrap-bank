@@ -3,6 +3,7 @@ import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 import { Formik } from 'formik';
 import * as yup from 'yup'
 
+
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 
@@ -234,7 +235,8 @@ export const Register = () => {
                                             ) : null}
                                         </Form.Group>
 
-                                        <Button variant="primary" type="submit"  href="http://localhost:3000/registerSucess">Register
+                                        <Button variant="primary" type="submit"  >Register
+                                        {/* href="http://localhost:3000/registrationsucess" */}
                                             <i class="fa fa-pencil" aria-hidden="true"></i> 
                             </Button>
                                     </Form>

@@ -10,6 +10,10 @@ import { Layout } from './components/Layout'
 import {personal} from './components/PersonalLoan';
 import { NavigationBar } from './components/NavigationBar';
 import {Sucess} from  './components/Sucess';
+import {RegisterSucess} from  './components/RegisterSucess';
+import {UserDetail} from  './components/UserDetails';
+
+
 
 import {ValidationSchemaExample} from './components/Velidation'
 
@@ -37,8 +41,11 @@ function App() {
             <Route path="/educational" component= {Education} />  
             <Route path="/personal" component= {personal} />  
             <Route path="/sucess" component= {Sucess} />  
-         
+            <Route path="/registrationsucess" component= {RegisterSucess} />  
             <Route path="/velidation" component= {ValidationSchemaExample} />
+            <Route path="/customerdetails" component= {UserDetail} />
+            
+
       
 
 

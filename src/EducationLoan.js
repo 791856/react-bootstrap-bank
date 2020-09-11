@@ -35,8 +35,8 @@ export const Education = () => {
                     <Form.Control type="Anualincome" placeholder="" />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Apply for Education  loan
+                <Button variant="primary" type="submit" href="http://localhost:3000/sucess">
+                    Apply For Education  Loan
                             </Button>
             </Form>
 

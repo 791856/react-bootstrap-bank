@@ -24,7 +24,7 @@ export const Login = () => {
                                 <Form.Check type="checkbox" label="Remember Password" />
                             </Form.Group>
                             <Form.Group>
-                                <Button variant="primary" type="submit"  href="http://localhost:3000/Userdetails">
+                                <Button variant="primary" type="submit"  href="http://localhost:3000/customerdetails">
                                     <i class="fa fa-unlock-alt" aria-hidden="true"></i> Login
                             </Button>
                             </Form.Group>

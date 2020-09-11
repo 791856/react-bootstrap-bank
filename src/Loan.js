@@ -76,16 +76,21 @@ class Loan extends Component{
 
                             <Form.Group controlId="LoanApplyDate">
                                 <Form.Label><strong>Loan Apply Date</strong></Form.Label>
-                                <Form.Control type="LoanApplyDate" placeholder="" />
+                                <Form.Control 
+                                type="date"
+                                placeholder="Loan Apply Date"
+                                name="LoanApplyDate"
+                                />
                             </Form.Group>
 
                             <Form.Group controlId="RateofIntrest">
                                 <Form.Label><strong>Rate of intrest</strong></Form.Label>
-                                <Form.Control placeholder="Enter the rate of intrest "
-                                    type="number"
-                                    name="RateofIntrest"
-                                    value={values.rateofintrest}
-                                    onChange={handleChange}
+                                <Form.Control 
+                                type="number" 
+                                 placeholder="Enter rate of Intrest "
+                                name="rateofintrest"
+                                value={values.rateofintrest}
+                                onChange={handleChange}
                                 />
                                 {errors.rateofintrest && touched.rateofintrest ? (
                                     <div>{errors.rateofintrest}</div>
@@ -95,9 +100,9 @@ class Loan extends Component{
                             <Form.Group controlId="DurationOfTimePeriod">
                                 <Form.Label><strong>Duration of Time period</strong></Form.Label>
                                 <Form.Control
-                                    placeholder=" Please Enter loan amount here "
                                     type="number"
-                                    name="DurationOfTimePeriod"
+                                    placeholder=" Please Enter loan amount here "
+                                    name="duration"
                                     value={values.duration}
                                     onChange={handleChange}
                                 />

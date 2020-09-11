@@ -1,19 +1,74 @@
 import React from 'react'
 import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 
+import { Formik } from 'formik';
+import * as yup from 'yup'
+
+const schema = yup.object({
+    Anualincome: yup.string()
+        .required(),
+    CompanyName: yup.string()
+    .required()
+
+});
+
 export const PersonalLoan = () => {
     return (
         <div>
-            <h1>Personal loan</h1>
-                    <Form>
-                            <Form.Group controlId="Anual income">
+            <h1>Personal Loan</h1>
+
+            <Formik
+                validationSchema={schema}
+                onSubmit={console.log}
+                initialValues={{
+
+                    Anualincome: '',
+                    CompanyName: '',
+
+                }}
+            >
+                {({
+                    handleSubmit,
+                    handleChange,
+                    handleBlur,
+                    values,
+                    touched,
+                    isValid,
+                    errors,
+                }) => (
+
+                        <Form noValidate onSubmit={handleSubmit}>
+
+                            <Form.Group controlId="Anualincome">
                                 <Form.Label><strong>Anual income</strong></Form.Label>
-                                <Form.Control type=" loan amount" placeholder="" />
+                                <Form.Control
+                                    type="number"
+                                    placeholder="Enter Annul income "
+                                    name="Anualincome"
+                                    value={values.Anualincome}
+                                    onChange={handleChange}
+
+                                />
+                                {errors.Anualincome && touched.Anualincome ? (
+                                    <div>{errors.Anualincome}</div>
+                                ) : null}
+
                             </Form.Group>
 
-                            <Form.Group controlId="Company Name">
-                                <Form.Label><strong>Company name </strong></Form.Label>
-                                <Form.Control type="Course" placeholder="" />
+                            <Form.Group controlId="CompanyName">
+                                <Form.Label><strong>Company Name </strong></Form.Label>
+                                <Form.Control 
+                               type="number"
+                               placeholder="Enter Company Name"
+                               name="CompanyName"
+                               value={values.CompanyName}
+                               onChange={handleChange}
+
+                           />
+                           {errors.CompanyName && touched.CompanyName ? (
+                               <div>{errors.CompanyName}</div>
+                           ) : null}
+
                             </Form.Group>
 
                             <Form.Group controlId="Father Name">
@@ -32,9 +87,14 @@ export const PersonalLoan = () => {
                             </Form.Group>
 
                             <Button variant="primary" type="submit">
-                                Apply for Education  loan
+                            {/* href="http://localhost:3000/sucess */}
+                                ApplyForPersonalLoan
                             </Button>
-        </Form>
+                        </Form>
+
+                    )}
+
+            </Formik>
 
         </div>
     )
