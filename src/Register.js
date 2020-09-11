@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Button, Row, Col, Form,Dropdown } from 'react-bootstrap';
 import {Formik} from 'formik';
 import * as yup from 'yup'
+import styles from './Register.module.css'
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
@@ -74,7 +75,7 @@ export const Register = () => {
                 
               />
  {errors.namee  && touched.namee? (
-                                <div>{errors.namee}</div>
+                                <div  className={styles.errorDiv}>{errors.namee}</div>
                             ) : null}
             
             </Form.Group>
@@ -90,7 +91,7 @@ export const Register = () => {
                //  isInvalid={!!errors.username  && touched.username}
               />
                {errors.username  && touched.username ? (
-                                <div>{errors.username}</div>
+                                <div  className={styles.errorDiv}>{errors.username}</div>
                             ) : null}
 
             
@@ -108,7 +109,7 @@ export const Register = () => {
                
               />
               {errors.password  && touched.password? (
-                                <div>{errors.password}</div>
+                                <div  className={styles.errorDiv}>{errors.password}</div>
                             ) : null}
             </Form.Group>
 
@@ -125,7 +126,7 @@ export const Register = () => {
                
               />
               {errors.address  && touched.address ? (
-                                <div>{errors.address}</div>
+                                <div  className={styles.errorDiv}>{errors.address}</div>
                             ) : null}
             </Form.Group>
 
@@ -142,7 +143,7 @@ export const Register = () => {
               />
             
                   {errors.country  && touched.country ? (
-                                <div>{errors.country}</div>
+                                <div  className={styles.errorDiv}>{errors.country}</div>
                             ) : null}
             </Form.Group>
 
@@ -161,7 +162,7 @@ export const Register = () => {
                 {errors.state}
               </Form.Control.Feedback> */}
                   {errors.state  && touched.state  ? (
-                                <div>{errors.state}</div>
+                                <div  className={styles.errorDiv}>{errors.state}</div>
                             ) : null}
               
             </Form.Group>
@@ -178,7 +179,7 @@ export const Register = () => {
 
               />
               {errors.email  && touched.email ? (
-                                <div>{errors.email}</div>
+                                <div  className={styles.errorDiv}>{errors.email}</div>
                             ) : null}
             </Form.Group>
 
@@ -194,7 +195,7 @@ export const Register = () => {
               
               />
                 {errors.contact   && touched.contact? (
-                                <div>{errors.contact}</div>
+                                <div  className={styles.errorDiv}>{errors.contact}</div>
                             ) : null}
             </Form.Group>
 
@@ -210,7 +211,7 @@ export const Register = () => {
 
               />
                      {errors.dob  && touched.dob  ? (
-                                <div>{errors.dob}</div>
+                                <div  className={styles.errorDiv}>{errors.dob}</div>
                             ) : null}
             </Form.Group>
 
@@ -239,7 +240,7 @@ export const Register = () => {
                // isInvalid={!!errors.ida}
              />
                 {errors.branch  && touched.branch ? (
-                                <div>{errors.branch}</div>
+                                <div  className={styles.errorDiv}>{errors.branch}</div>
                             ) : null}
             </Form.Group>
 
@@ -254,7 +255,7 @@ export const Register = () => {
                // isInvalid={!!errors.ida}
              />
                 {errors.ida  && touched.ida ? (
-                                <div>{errors.ida}</div>
+                                <div  className={styles.errorDiv}>{errors.ida}</div>
                             ) : null}
             </Form.Group>
 
@@ -269,7 +270,7 @@ export const Register = () => {
                // isInvalid={!!errors.ida}
              />
                 {errors.ipt  && touched.ipt ? (
-                                <div>{errors.ipt}</div>
+                                <div  className={styles.errorDiv}>{errors.ipt}</div>
                             ) : null}
             </Form.Group>
 
@@ -285,7 +286,7 @@ export const Register = () => {
                // isInvalid={!!errors.ida}
              />
                 {errors.idn  && touched.idn ? (
-                                <div>{errors.idn}</div>
+                                <div  className={styles.errorDiv}>{errors.idn}</div>
                             ) : null}
             </Form.Group>
                          
