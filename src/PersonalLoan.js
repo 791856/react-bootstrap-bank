@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 
-export const Education = () => {
+export const PersonalLoan = () => {
     return (
         <div>
             <h1>Personal loan</h1>
