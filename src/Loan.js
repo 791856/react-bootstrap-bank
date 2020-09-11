@@ -46,6 +46,59 @@ export const Loan = () => {
                                 </Form.Control>
                             </Form.Group>
 
+                            <Form.Group controlId="Course fee">
+                    <Form.Label><strong>Course Fee</strong></Form.Label>
+                    <Form.Control type=" loan amount" placeholder="" />
+                </Form.Group>
+
+                <Form.Group controlId="Course">
+                    <Form.Label><strong>Course</strong></Form.Label>
+                    <Form.Control type="Course" placeholder="" />
+                </Form.Group>
+
+                <Form.Group controlId="FatherName">
+                    <Form.Label><strong>Father Name</strong></Form.Label>
+                    <Form.Control type="RateofIntrest" placeholder="" />
+                </Form.Group>
+
+                <Form.Group controlId="formloantype">
+                    <Form.Label><strong>Father Occupation</strong></Form.Label>
+                    <Form.Control as="select" custom>
+                        <option>Select</option>
+                        <option>employeed</option>
+                        <option>salaried</option>
+                    </Form.Control>
+                </Form.Group>
+
+                <Form.Group controlId="Anual income">
+                                <Form.Label><strong>Anual income</strong></Form.Label>
+                                <Form.Control type=" loan amount" placeholder="" />
+                            </Form.Group>
+
+                            <Form.Group controlId="Company Name">
+                                <Form.Label><strong>Company name </strong></Form.Label>
+                                <Form.Control type="Course" placeholder="" />
+                            </Form.Group>
+
+                            <Form.Group controlId="Father Name">
+                                <Form.Label><strong>Designation </strong></Form.Label>
+                                <Form.Control type="RateofIntrest" placeholder="" />
+                            </Form.Group>
+
+                            <Form.Group controlId="Total Exp">
+                                <Form.Label><strong>Total exp</strong></Form.Label>
+                                <Form.Control type="Total Exp" placeholder="" />
+                            </Form.Group>
+
+                            <Form.Group controlId="Exp with Current company">
+                                <Form.Label><strong>Exp with Current Company </strong></Form.Label>
+                                <Form.Control type="Anual income" placeholder="" />
+                            </Form.Group>
+                <Form.Group controlId="Annualincome">
+                    <Form.Label><strong>Annual income</strong></Form.Label>
+                    <Form.Control type="Anualincome" placeholder="" />
+                </Form.Group>
+
                             <Form.Group controlId="loanAmount">
                                 <Form.Label><strong>Loan Amount</strong></Form.Label>
                                 <Form.Control placeholder=" Please Enter loan amount here "

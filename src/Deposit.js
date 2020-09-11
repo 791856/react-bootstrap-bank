@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Button, Row, Col, Form } from 'react-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap';
 
 export const Deposit = () => {
     return (
@@ -18,19 +19,15 @@ export const Deposit = () => {
 
                             <Form.Group controlId="formloanamount">
                                 <Form.Label><strong>Deposite Amount</strong></Form.Label>
-                                <Form.Control type="loanamount" placeholder="" />
+                                <Form.Control type="depositeamount" placeholder="" />
                             </Form.Group>
-
-                          
-
-                            <Form.Group controlId="formloanroi">
-                                <Form.Label><strong>Available Balance</strong></Form.Label>
-                                <Form.Control type="loanroi" placeholder="" />
-                            </Form.Group>
-
                             <Button variant="primary" type="submit">
                                 Deposit
                             </Button>
+                            &nbsp;&nbsp;&nbsp;
+        <Button type="primary" key="console" shape="round" href="http://localhost:3000/loan">
+                           Loan
+        </Button>
                         </Form>
         </div>
     )
