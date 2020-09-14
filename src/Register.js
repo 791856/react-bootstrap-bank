@@ -45,12 +45,12 @@ const schema = yup.object({
     address: yup.string().required(),
     country: yup.string().required(),
     state: yup.string().required(),
-    ida: yup.number().required(),
+    ida: yup.number().required().positive('Only positive numbers allowed'),
     email: yup.string().email().required(),
     contact: yup.string().required()
-        .matches(phoneRegExp, 'Phone number is not valid')
-        .min(10, "to short")
-        .max(10, "to long"),
+        .matches(/^[0-9]+$/, 'Phone number is not valid')
+        .min(10, "too short")
+        .max(10, "too long"),
     dob: yup.date().max(new Date(Date.now() - 1 * 24 * 60 * 60 * 1000)).required(),
     ac_type: yup.string().required(),
     zip: yup.string().required(),
@@ -279,7 +279,7 @@ const schema = yup.object({
                                             ) : null}
                                         </Form.Group>
 
-                                        <Button variant="primary" type="submit"  href="http://localhost:3000/registerSucess">Register
+                                        <Button variant="primary" type="submit"  >Register
                                             <i class="fa fa-pencil" aria-hidden="true"></i> 
                             </Button>
                                     </Form>
