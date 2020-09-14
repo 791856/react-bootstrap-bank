@@ -1,9 +1,37 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 import { Formik } from 'formik';
 import * as yup from 'yup'
 
+class Register extends Component{
+    state={value:'',
+age:''}
+  
+ 
+   handleChange(event) {
+       let dt=event.target.value;
+       let split_dob = dt.split("-");
+let month = split_dob[1];
+let day = split_dob[2];
+let year = split_dob[0];
+let dob_asdate = new Date(year, month, day);
+let today = new Date();
+let mili_dif = Math.abs(today.getTime() - dob_asdate.getTime());
+let age = (mili_dif / (1000 * 3600 * 24 * 365.25));
+       console.log('dob');
+       console.log(dt);
+       console.log('age');
+       console.log(age);
+     this.setState({value:event.target.value});
+     (age<18)?this.setState({age:'Minor'}):((age>18 && age <=60)?this.setState({age:'Normal'})
+     :this.setState({age:'Senior'}))
+    
+   }
+  
+     render(){
 
+        console.log(this.state.value)
+        console.log(this.state.age)
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 
@@ -29,14 +57,28 @@ const schema = yup.object({
     terms: yup.bool().required(),
 });
 
-export const Register = () => {
+
     return (
         <Formik
             validationSchema={schema}
             onSubmit={console.log}
             initialValues={{
+                namee:'',
+                username:'',
+                password:'',
+                address:'',
+                country:'',
+                state:'',
+                ida:'',
+                email:'',
+                contact:'',
+                dob:'',
+                ac_type:'',
+                zip:''
 
-                lastName: 'Otto'
+
+
+                
             }}
         >
             {({
@@ -198,14 +240,16 @@ export const Register = () => {
                                                 type="date"
                                                 placeholder="Date of Birth"
                                                 name="dob"
-                                                value={values.dob}
+                                               // value={values.dob}
                                                 onChange={handleChange}
-
+                                                 value={this.state.value}
+                                                 onChange={this.handleChange.bind(this)}
                                             />
                                             {errors.dob && touched.dob ? (
                                                 <div>{errors.dob}</div>
                                             ) : null}
                                         </Form.Group>
+  {(this.state.value!=='')?<div style={{color:'green'}}>{this.state.age}</div>:null}
 
 
 
@@ -235,8 +279,7 @@ export const Register = () => {
                                             ) : null}
                                         </Form.Group>
 
-                                        <Button variant="primary" type="submit"  >Register
-                                        {/* href="http://localhost:3000/registrationsucess" */}
+                                        <Button variant="primary" type="submit"  href="http://localhost:3000/registerSucess">Register
                                             <i class="fa fa-pencil" aria-hidden="true"></i> 
                             </Button>
                                     </Form>
@@ -255,3 +298,6 @@ export const Register = () => {
         </Formik>
     )
 }
+}
+
+export default Register;
