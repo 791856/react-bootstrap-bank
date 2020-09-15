@@ -12,39 +12,42 @@ import { PersonalLoan } from './PersonalLoan'
 const DurationRegExp =  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 class Loan extends Component {
-    state = { value: 'select' }
+    state = { value: 'select',rate:'' }
 
-    TDate() {
-        var UserDate = document.getElementById("LoanApplyDate").value;
-        console.log("hi", UserDate);
-
-        var ToDate = new Date();
-        console.log("hi1", ToDate);
-
-        if (new Date(UserDate).getTime() <= ToDate.getTime()) {
-            alert("The Date must be Bigger or Equal to today date");
-            return false;
-        }
-        return true;
-    }
+    
 
     handleChange(event) {
         this.setState({ value: event.target.value });
         console.log(this.state.value)
     }
 
+   
+
     render() {
+
+    //  function   handleChange1(event) {
+    //         let st=event.target.value;
+    //         if(st===5||st===10||st===15||st===20)
+    //         {
+    //         this.setState({ rate: event.target.value });
+    //         console.log(this.state.rate)
+    //     return true;}
+    //     return false;
+    //     }
+       
         let loanschema = yup.object({
             loanamount: yup.string()
                 .required("Loan Amount is a required field")
                 .min(3, "Loan Aamount must be at least 3 number"),
-            rateofintrest: yup.string().required().matches('rate of intrest should not be more then 10%'),
+            rateofintrest: yup.string().required().matches(/^[{1}{2}{3}{4}]+$/,'Rate of interest cannot be more than 10%'),
             duration: yup.string().required()
-                .matches(DurationRegExp, 'Duration is  valid')
-                .min(5, "Duration of loan min 5 yers") 
-                .max(20, "Duration of loan should not be max 20 year"),
-            AccountHolder: yup.string().required(),
-            LoanApplyDate: yup.date().required(),
+               .matches(/^[5,10,15,20]+$/, 'Duration is not valid')
+               ,
+              //  .min(5, "Duration of loan min 5 yers") 
+              //  .max(20, "Duration of loan should not be max 20 year"),
+            AccountHolder:yup.string()
+            .required("Name is a required field").matches(/^[a-zA-Z' ']+$/),
+            LoanApplyDate:  yup.date().max(new Date(Date.now() - 1 * 24 * 60 * 60 * 1000)).required(),
             LoanEndDate: yup.date().required(),
         })
         return (
@@ -99,16 +102,16 @@ class Loan extends Component {
                                     </Form.Group>
 
                                     <Form.Group controlId="Account Holder Name">
-                                        <Form.Label><strong>Account Holde Name</strong></Form.Label>
+                                        <Form.Label><strong>Account Holder Name</strong></Form.Label>
                                         <Form.Control
                                             type="text"
                                             placeholder="Enter account Holder "
-                                            name="rateofintrest"
+                                            name="AccountHolder"
                                             value={values.AccountHolder}
                                             onChange={handleChange}
                                         />
                                         {errors.AccountHolder && touched.AccountHolder ? (
-                                            <div>{errors.rateofintrest}</div>
+                                            <div>{errors.AccountHolder}</div>
                                         ) : null}
                                     </Form.Group>
 
@@ -118,7 +121,7 @@ class Loan extends Component {
                                             type="date"
                                             placeholder="Loan Apply Date"
                                             name="LoanApplyDate"
-                                            onchange="TDate()"
+                                            onChange={handleChange}
                                         />
 
                                         {/* if(values.to.before(values.from) {
@@ -126,18 +129,17 @@ class Loan extends Component {
                                         } */}
                                         {errors.LoanApplyDate && touched.LoanApplyDate ? (
                                             <div>{errors.LoanApplyDate}
-                                             {errors.from = 'Must be before Current Date'}
                                             </div>
                                         ) : null}
 
 
                                     </Form.Group>
                                     <Form.Group controlId="LoanApplyEndDate">
-                                        <Form.Label><strong>Loan Apply Date</strong></Form.Label>
+                                        <Form.Label><strong>Loan End Date</strong></Form.Label>
                                         <Form.Control
                                             type="date"
                                             placeholder="Loan Apply End Date"
-                                            name="LoanApplyDate"
+                                            name="LoanEndDate"
                                         />
                                         {errors.LoanEndDate && touched.LoanEndDate ? (
                                             <div>{errors.LoanEndDate}</div>
@@ -149,7 +151,7 @@ class Loan extends Component {
                                         <Form.Label><strong>Rate of intrest</strong></Form.Label>
                                         <Form.Control
                                             type="number"
-                                            placeholder="Enter rate of Intrest "
+                                            placeholder="Enter rate of Interest in percentage(%) "
                                             name="rateofintrest"
                                             value={values.rateofintrest}
                                             onChange={handleChange}
@@ -162,7 +164,7 @@ class Loan extends Component {
                                     <Form.Group controlId="DurationOfTimePeriod">
                                         <Form.Label><strong>Duration of Time period</strong></Form.Label>
                                         <Form.Control
-                                            type="number"
+                                            type="text"
                                             placeholder=" Please Enter loan amount here "
                                             name="duration"
                                             value={values.duration}
